@@ -1,0 +1,62 @@
+// Variables
+$primary-color: #0073aa;
+$secondary-color: #23282d;
+$text-color: #333;
+$background-color: #fff;
+$font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
+
+// Base styles
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-family;
+    color: $text-color;
+    background-color: $background-color;
+    line-height: 1.6;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Layout
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.test {
+    background: red;
+
+    h1 a {
+        color: green;
+    }
+}
+
+// Imports (ajoutez vos partials ici)
+// @import 'partials/header';
+// @import 'partials/footer';
+// @import 'partials/components';

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+	<symbol id="icon-menu" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<line x1="0.5" y1="1" x2="27.5" y2="1" stroke="currentColor" stroke-linecap="round" />
+		<line x1="0.5" y1="12" x2="27.5" y2="12" stroke="currentColor" stroke-linecap="round" />
+		<line x1="0.5" y1="23" x2="27.5" y2="23" stroke="currentColor" stroke-linecap="round" />
+	</symbol>
+</svg>

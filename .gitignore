@@ -1,0 +1,20 @@
+.DS_Store
+
+/.env
+/.htaccess
+/vendor
+/web/wp
+/web/app/uploads
+/web/app/cache
+/vendor
+/web/app/debug.log
+
+# THEME files
+/web/app/themes/lumberjack-child/dist/
+/web/app/themes/lumberjack-child/node_modules/
+/web/app/themes/lumberjack/dist/
+/web/app/themes/lumberjack/node_modules/
+/web/app/themes/twentytwentyfive/
+
+# Plugins
+/web/app/plugins/*

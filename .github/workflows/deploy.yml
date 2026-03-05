@@ -1,0 +1,93 @@
+name: Deploy Bedrock WordPress
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to ${{ github.ref == 'refs/heads/main' && 'Production' || 'Staging' }}
+    runs-on: ubuntu-latest
+
+    env:
+      THEME_PATH: web/app/themes/lumberjack-child
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # PHP & Composer
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: mbstring, dom
+          tools: composer
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-interaction
+
+      - name: Cache Node modules
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.THEME_PATH }}/node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('web/app/themes/lumberjack-child/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install Theme dependencies
+        working-directory: ${{ env.THEME_PATH }}
+        run: npm install
+
+      - name: Build Theme
+        working-directory: ${{ env.THEME_PATH }}
+        run: npm run build
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync
+        run: |
+          REMOTE_USER="${{ secrets.REMOTE_USER }}"
+          REMOTE_HOST="${{ secrets.REMOTE_HOST }}"
+          REMOTE_PATH="${{ github.ref == 'refs/heads/main' && secrets.REMOTE_PATH_PROD || secrets.REMOTE_PATH_STAGING }}"
+
+          rsync -avz --delete \
+            --exclude=".git/" \
+            --exclude=".github/" \
+            --exclude=".env" \
+            --exclude=".env.*" \
+            --exclude="*.log" \
+            --exclude="tests/" \
+            --exclude="*.md" \
+            --exclude="docker-compose.yml" \
+            --exclude="Dockerfile" \
+            --exclude="nginx.conf" \
+            --exclude="pint.json" \
+            --exclude="wp-cli.yml" \
+            --exclude="composer.json" \
+            --exclude="composer.lock" \
+            --exclude="web/.htaccess" \
+            --exclude="web/app/theme/lumberjack-child/package*.json" \
+            --exclude="web/app/theme/lumberjack-child/node_modules/" \
+            --exclude="web/app/uploads" \
+            ./ $REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH
