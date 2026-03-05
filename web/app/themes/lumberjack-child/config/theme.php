@@ -104,3 +104,31 @@ function custom_theme_extend_twig($twig)
   return $twig;
 }
 add_filter('timber/twig', 'custom_theme_extend_twig');
+
+// ========================================
+// CONFIGURATION ACF (ADVANCED CUSTOM FIELDS)
+// ========================================
+
+/**
+ * Définit le dossier de sauvegarde des fichiers JSON d'ACF
+ * 
+ * @return string Chemin vers le dossier acf-json
+ */
+function mcf_acf_json_save_point()
+{
+  return get_stylesheet_directory() . '/acf-json';
+}
+add_filter('acf/settings/save_json', 'mcf_acf_json_save_point');
+
+/**
+ * Définit le dossier de chargement des fichiers JSON d'ACF
+ * 
+ * @param array $paths Chemins existants
+ * @return array Chemins mis à jour
+ */
+function mcf_acf_json_load_point($paths)
+{
+  $paths[] = get_stylesheet_directory() . '/acf-json';
+  return $paths;
+}
+add_filter('acf/settings/load_json', 'mcf_acf_json_load_point');
