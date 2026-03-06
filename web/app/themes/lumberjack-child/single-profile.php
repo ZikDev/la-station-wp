@@ -44,7 +44,7 @@ class SingleProfileController extends Controller
         $context['tiktok'] = get_field("tiktok", $profile);
         $context['facebook'] = get_field("facebook", $profile);
 
-        // dump(get_field("creation_year", $profile));
+        // dump($context['domain_technician']);
 
        
 
