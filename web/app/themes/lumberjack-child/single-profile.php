@@ -29,7 +29,7 @@ class SingleProfileController extends Controller
         $context['name'] = get_field("name", $profile);
         $context['first_name'] = get_field("first_name", $profile);
         $context['creation_year'] = get_field("creation_year", $profile);
-        $context['e-mail'] = get_field("e-mail", $profile);
+        $context['email'] = get_field("email", $profile);
         $context['phone_number'] = get_field("phone_number", $profile);
         $context['district'] = get_field("district", $profile);
         $context['years_of_experience'] = get_field("years_of_experience", $profile);
@@ -44,7 +44,7 @@ class SingleProfileController extends Controller
         $context['tiktok'] = get_field("tiktok", $profile);
         $context['facebook'] = get_field("facebook", $profile);
 
-        // dump($context['domain_technician']);
+        // dump($context['email']);
 
        
 

@@ -1,0 +1,705 @@
+{
+    "key": "group_69a9495e2c93c",
+    "title": "Information du profil",
+    "fields": [
+        {
+            "key": "field_69aa90cd73632",
+            "label": "Une fois remplie",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Une fois tous les champs obligatoires et voulus remplis, cliquer sur \"publier\" à droite du formulaire pour créer la page de profil. \r\nSi vous avez apporté des modifications à votre page, cliquez sur \"mettre à jour\" pour mettre à jour les informations changées sur le site.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_69a9495e4739f",
+            "label": "Catégorie",
+            "name": "category",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "band": "Band",
+                "location": "Lieu",
+                "musician": "Musicien.ne",
+                "organization": "Organisme\/instance",
+                "tech": "Technicien.ne"
+            },
+            "default_value": false,
+            "return_format": "label",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_69a95fac045b9",
+            "label": "Domaine(s)",
+            "name": "domain_technician",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "tech"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "light": "Lumière",
+                "photo": "Photo",
+                "sound": "Son",
+                "video": "Vidéo"
+            },
+            "default_value": [],
+            "return_format": "label",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Ajouter un nouveau choix"
+        },
+        {
+            "key": "field_69a9865013457",
+            "label": "Domaine(s)",
+            "name": "domain_organization",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "organization"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "admin": "Admin",
+                "associations": "Associations",
+                "booking": "Booking",
+                "communication": "Communication",
+                "cultural_institutions": "Instances culturelles",
+                "label": "Label",
+                "production": "Production",
+                "promotion": "Promotion"
+            },
+            "default_value": [],
+            "return_format": "label",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Ajouter un nouveau choix"
+        },
+        {
+            "key": "field_69a9611824b3d",
+            "label": "Style(s)",
+            "name": "style",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "band"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "acoustics": "Acoustique",
+                "brass_band": "Brass band",
+                "country": "Country",
+                "cover_band": "Cover band",
+                "electro": "Electro",
+                "ethnic": "Ethnique",
+                "fanfare": "Fanfare",
+                "folk": "Folk",
+                "funk": "Funk",
+                "guggen": "Guggenmusik",
+                "hip-hop": "Hip-hop",
+                "jazz": "Jazz",
+                "metal": "Métal",
+                "orchestra": "Orchestre",
+                "pop": "Pop",
+                "rap": "Rap",
+                "reggae": "Reggae",
+                "rock": "Rock",
+                "soul": "Soul",
+                "trad": "Trad",
+                "tribute": "Tribute",
+                "world": "World"
+            },
+            "default_value": [],
+            "return_format": "label",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Ajouter un nouveau choix"
+        },
+        {
+            "key": "field_69a9632c98806",
+            "label": "Instrument(s)",
+            "name": "instrument",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "musician"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "arranger": "Arrangeur",
+                "bass": "Basse",
+                "drum": "Batterie",
+                "beat_maker": "Beat maker",
+                "sing": "Chant",
+                "composer": "Compositeur",
+                "dj": "Dj",
+                "guitar": "Guitare",
+                "writer": "Paroliers",
+                "percussions": "Percussions",
+                "piano": "Piano\/clavier"
+            },
+            "default_value": [],
+            "return_format": "label",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Ajouter un nouveau choix"
+        },
+        {
+            "key": "field_69a9854a87908",
+            "label": "Type(s)",
+            "name": "type",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "location"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bar": "Bar",
+                "school": "École",
+                "company": "Entreprise",
+                "festival": "Festival",
+                "local": "Local",
+                "shop": "Magasin",
+                "concert_hall": "Salle de concert",
+                "studio": "Studio"
+            },
+            "default_value": [],
+            "return_format": "label",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Ajouter un nouveau choix"
+        },
+        {
+            "key": "field_69a98904eb314",
+            "label": "Nom",
+            "name": "name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69a98930eb315",
+            "label": "Prénom",
+            "name": "first_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "musician"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "tech"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69a94aa51f3a4",
+            "label": "Année de création",
+            "name": "creation_year",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "band"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "organisation"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "location"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "Y",
+            "return_format": "Y",
+            "first_day": 1,
+            "default_to_current_date": 0,
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_69a9898e5d98c",
+            "label": "E-mail",
+            "name": "email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69a989dc5d98d",
+            "label": "Numéro de téléphone",
+            "name": "phone_number",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69a98a2e5d98e",
+            "label": "District",
+            "name": "district",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "broye": "Broye",
+                "glane": "Glâne",
+                "gruyere": "Gruyère",
+                "lac": "Lac",
+                "sarine": "Sarine",
+                "singine": "Singine",
+                "veveyse": "Veveyse"
+            },
+            "default_value": false,
+            "return_format": "label",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_69a98cf38cea3",
+            "label": "Années d’expérience",
+            "name": "years_of_experience",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "musician"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_69a9495e4739f",
+                        "operator": "==",
+                        "value": "tech"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0-5_years": "0 - 5 ans",
+                "5-10_years": "5 - 10 ans",
+                "10-15_years": "10 - 15 ans",
+                "more_than_15_years": "+15 ans"
+            },
+            "default_value": false,
+            "return_format": "label",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_69a98db5aa04a",
+            "label": "Photo de profil",
+            "name": "profile_picture",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "uploadedTo",
+            "min_width": 300,
+            "min_height": 300,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_69a98e0cd85d4",
+            "label": "Bio \/ description",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_69a99c6d3cd1e",
+            "label": "Site Web",
+            "name": "website",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Veuillez remplir avec le lien vers votre site uniquement.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69a98e488b16c",
+            "label": "Vidéo 1",
+            "name": "video_1",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Veuillez remplir avec le lien d'une vidéo YouTube ou Vimeo uniquement. La vidéo pourra directement être lue sur la page de profils.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69a99ad84f4f5",
+            "label": "Vidéo 2",
+            "name": "video_2",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Veuillez remplir avec le lien d'une vidéo YouTube ou Vimeo uniquement. La vidéo pourra directement être lue sur la page de profils.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69a99ae44f4f7",
+            "label": "Vidéo 3",
+            "name": "video_3",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Veuillez remplir avec le lien d'une vidéo YouTube ou Vimeo uniquement. La vidéo pourra directement être lue sur la page de profils.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69a99b02d43e9",
+            "label": "Instagram",
+            "name": "instagram",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Veuillez remplir avec le lien d'un profil Instagram uniquement.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69a99b7188e07",
+            "label": "YouTube",
+            "name": "youtube",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Veuillez remplir avec le lien d'une chaine YouTube uniquement.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69a99ba888e08",
+            "label": "TikTok",
+            "name": "tiktok",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Veuillez remplir avec le lien d'un profil TikTok uniquement.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69a99bd988e09",
+            "label": "Facebook",
+            "name": "facebook",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Veuillez remplir avec le lien d'un profil Facebook uniquement.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "profile"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773063284
+}

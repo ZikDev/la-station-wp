@@ -4,15 +4,15 @@
     <main>
         <h1>{{ title }}</h1>
         <p>{{ category }}</p>
-        {# <p>{{ domain_technician }}</p>
-        <p>{{ domain_organization }}</p>
-        <p>{{ style }}</p>
-        <p>{{ instrument }}</p>
-        <p>{{ type }}</p> #}
+        <p>{{ domain_technician|join(", ") }}</p>
+        <p>{{ domain_organization|join(", ") }}</p>
+        <p>{{ style|join(", ") }}</p>
+        <p>{{ instrument|join(", ") }}</p>
+        <p>{{ type|join(", ") }}</p>
         <p>{{ name }}</p>
         <p>{{ first_name }}</p>
         <p>{{ creation_year }}</p>
-        <a href="mailto:{{ e-mail }}">{{ e-mail }}</a> </br>
+        <a href="mailto:{{ email }}">{{ email }}</a> </br>
         <a href="tel:+{{ phone_number }}">{{ phone_number }}</a> </br>
         <p>{{ district }}</p>
         <p>{{ years_of_experience }}</p>
