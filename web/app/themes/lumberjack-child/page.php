@@ -28,8 +28,15 @@ class PageController extends Controller
         $context['content'] = $page->content;
 
         if (is_front_page()) {
+            $content = $context["post"];
+
+            $context['catch_phrase'] = get_field("catch_phrase", $content);
+            $context['introduction'] = get_field("introduction", $content);
+
+
             return new TimberResponse('templates/home.twig', $context);
         }
+
 
         return new TimberResponse('templates/generic-page.twig', $context);
     }
