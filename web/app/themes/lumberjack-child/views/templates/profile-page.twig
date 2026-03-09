@@ -10,14 +10,26 @@
         <p>{{ instrument.name|join(", ") }}</p>
         <p>{{ location_type.name|join(", ") }}</p>
         <p>{{ name }}</p>
-        <p>{{ first_name }}</p>
-        <p>{{ creation_year.name }}</p>
-        <a href="mailto:{{ email }}">{{ email }}</a> </br>
-        <a href="tel:+{{ phone_number }}">{{ phone_number }}</a> </br>
+        {% if first_name %}
+            <p>{{ first_name }}</p>
+        {% endif %}
+        {% if creation_year.name %}
+            <p>{{ creation_year.name }}</p>
+        {% endif %}
+        {% if email %}
+            <a href="mailto:{{ email }}">{{ email }}</a> </br>
+        {% endif %}
+        {% if phone_number %}
+            <a href="tel:+{{ phone_number }}">{{ phone_number }}</a> </br>
+        {% endif %}
         <p>{{ district.name }}</p>
-        <p>{{ years_of_experience.name }}</p>
+        {% if years_of_experience.name %}
+            <p>{{ years_of_experience.name }}</p>
+        {% endif %}
         <img src="{{ profile_picture.url }}" />
-        <p>{{ description }}</p>
+        {% if description %}
+            <p>{{ description }}</p>
+        {% endif %}
         <a href="{{ website }}">{{ website }}</a> </br>
         {% if video_1 %}
             <a href="{{ video_1 }}">{{ video_1 }}</a> </br>
