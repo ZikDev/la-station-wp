@@ -27,6 +27,10 @@ class PageController extends Controller
         $context['title'] = $page->title;
         $context['content'] = $page->content;
 
+        if (is_front_page()) {
+            return new TimberResponse('templates/home.twig', $context);
+        }
+
         return new TimberResponse('templates/generic-page.twig', $context);
     }
 }

@@ -35,11 +35,11 @@
                 "id": ""
             },
             "choices": {
-                "band": "Band",
-                "location": "Lieu",
+                "technician": "Technicien.ne",
                 "musician": "Musicien.ne",
+                "band": "Groupe",
                 "organization": "Organisme\/instance",
-                "tech": "Technicien.ne"
+                "location": "Lieu"
             },
             "default_value": false,
             "return_format": "label",
@@ -57,7 +57,7 @@
             "label": "Domaine(s)",
             "name": "domain_technician",
             "aria-label": "",
-            "type": "checkbox",
+            "type": "taxonomy",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -65,7 +65,7 @@
                     {
                         "field": "field_69a9495e4739f",
                         "operator": "==",
-                        "value": "tech"
+                        "value": "technician"
                     }
                 ]
             ],
@@ -74,27 +74,24 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "light": "Lumière",
-                "photo": "Photo",
-                "sound": "Son",
-                "video": "Vidéo"
-            },
-            "default_value": [],
-            "return_format": "label",
-            "allow_custom": 0,
+            "taxonomy": "domain_technician",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "checkbox",
             "allow_in_bindings": 0,
-            "layout": "vertical",
-            "toggle": 0,
-            "save_custom": 0,
-            "custom_choice_button_text": "Ajouter un nouveau choix"
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_69a9865013457",
             "label": "Domaine(s)",
             "name": "domain_organization",
             "aria-label": "",
-            "type": "checkbox",
+            "type": "taxonomy",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -111,31 +108,24 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "admin": "Admin",
-                "associations": "Associations",
-                "booking": "Booking",
-                "communication": "Communication",
-                "cultural_institutions": "Instances culturelles",
-                "label": "Label",
-                "production": "Production",
-                "promotion": "Promotion"
-            },
-            "default_value": [],
-            "return_format": "label",
-            "allow_custom": 0,
+            "taxonomy": "domain_organization",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "checkbox",
             "allow_in_bindings": 0,
-            "layout": "vertical",
-            "toggle": 0,
-            "save_custom": 0,
-            "custom_choice_button_text": "Ajouter un nouveau choix"
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_69a9611824b3d",
             "label": "Style(s)",
             "name": "style",
             "aria-label": "",
-            "type": "checkbox",
+            "type": "taxonomy",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -152,45 +142,24 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "acoustics": "Acoustique",
-                "brass_band": "Brass band",
-                "country": "Country",
-                "cover_band": "Cover band",
-                "electro": "Electro",
-                "ethnic": "Ethnique",
-                "fanfare": "Fanfare",
-                "folk": "Folk",
-                "funk": "Funk",
-                "guggen": "Guggenmusik",
-                "hip-hop": "Hip-hop",
-                "jazz": "Jazz",
-                "metal": "Métal",
-                "orchestra": "Orchestre",
-                "pop": "Pop",
-                "rap": "Rap",
-                "reggae": "Reggae",
-                "rock": "Rock",
-                "soul": "Soul",
-                "trad": "Trad",
-                "tribute": "Tribute",
-                "world": "World"
-            },
-            "default_value": [],
-            "return_format": "label",
-            "allow_custom": 0,
+            "taxonomy": "style",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "checkbox",
             "allow_in_bindings": 0,
-            "layout": "vertical",
-            "toggle": 0,
-            "save_custom": 0,
-            "custom_choice_button_text": "Ajouter un nouveau choix"
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_69a9632c98806",
             "label": "Instrument(s)",
             "name": "instrument",
             "aria-label": "",
-            "type": "checkbox",
+            "type": "taxonomy",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -207,34 +176,24 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "arranger": "Arrangeur",
-                "bass": "Basse",
-                "drum": "Batterie",
-                "beat_maker": "Beat maker",
-                "sing": "Chant",
-                "composer": "Compositeur",
-                "dj": "Dj",
-                "guitar": "Guitare",
-                "writer": "Paroliers",
-                "percussions": "Percussions",
-                "piano": "Piano\/clavier"
-            },
-            "default_value": [],
-            "return_format": "label",
-            "allow_custom": 0,
+            "taxonomy": "instrument",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "checkbox",
             "allow_in_bindings": 0,
-            "layout": "vertical",
-            "toggle": 0,
-            "save_custom": 0,
-            "custom_choice_button_text": "Ajouter un nouveau choix"
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_69a9854a87908",
             "label": "Type(s)",
             "name": "type",
             "aria-label": "",
-            "type": "checkbox",
+            "type": "taxonomy",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -251,24 +210,17 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "bar": "Bar",
-                "school": "École",
-                "company": "Entreprise",
-                "festival": "Festival",
-                "local": "Local",
-                "shop": "Magasin",
-                "concert_hall": "Salle de concert",
-                "studio": "Studio"
-            },
-            "default_value": [],
-            "return_format": "label",
-            "allow_custom": 0,
+            "taxonomy": "location_type",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "checkbox",
             "allow_in_bindings": 0,
-            "layout": "vertical",
-            "toggle": 0,
-            "save_custom": 0,
-            "custom_choice_button_text": "Ajouter un nouveau choix"
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_69a98904eb314",
@@ -415,7 +367,7 @@
             "label": "District",
             "name": "district",
             "aria-label": "",
-            "type": "select",
+            "type": "taxonomy",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -424,32 +376,24 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "broye": "Broye",
-                "glane": "Glâne",
-                "gruyere": "Gruyère",
-                "lac": "Lac",
-                "sarine": "Sarine",
-                "singine": "Singine",
-                "veveyse": "Veveyse"
-            },
-            "default_value": false,
-            "return_format": "label",
-            "multiple": 0,
+            "taxonomy": "district",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "select",
             "allow_null": 0,
             "allow_in_bindings": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_69a98cf38cea3",
             "label": "Années d’expérience",
             "name": "years_of_experience",
             "aria-label": "",
-            "type": "select",
+            "type": "taxonomy",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -464,7 +408,7 @@
                     {
                         "field": "field_69a9495e4739f",
                         "operator": "==",
-                        "value": "tech"
+                        "value": "technician"
                     }
                 ]
             ],
@@ -473,22 +417,17 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "0-5_years": "0 - 5 ans",
-                "5-10_years": "5 - 10 ans",
-                "10-15_years": "10 - 15 ans",
-                "more_than_15_years": "+15 ans"
-            },
-            "default_value": false,
-            "return_format": "label",
-            "multiple": 0,
+            "taxonomy": "years_of_experience",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "select",
             "allow_null": 0,
             "allow_in_bindings": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_69a98db5aa04a",
@@ -701,5 +640,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773063284
+    "modified": 1773068758
 }

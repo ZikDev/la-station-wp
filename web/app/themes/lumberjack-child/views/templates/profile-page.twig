@@ -4,27 +4,42 @@
     <main>
         <h1>{{ title }}</h1>
         <p>{{ category }}</p>
-        <p>{{ domain_technician|join(", ") }}</p>
-        <p>{{ domain_organization|join(", ") }}</p>
-        <p>{{ style|join(", ") }}</p>
-        <p>{{ instrument|join(", ") }}</p>
-        <p>{{ type|join(", ") }}</p>
+        <p>{{ domain_technician.name|join(", ") }}</p>
+        <p>{{ domain_organization.name|join(", ") }}</p>
+        <p>{{ style.name|join(", ") }}</p>
+        <p>{{ instrument.name|join(", ") }}</p>
+        <p>{{ location_type.name|join(", ") }}</p>
         <p>{{ name }}</p>
         <p>{{ first_name }}</p>
-        <p>{{ creation_year }}</p>
+        <p>{{ creation_year.name }}</p>
         <a href="mailto:{{ email }}">{{ email }}</a> </br>
         <a href="tel:+{{ phone_number }}">{{ phone_number }}</a> </br>
-        <p>{{ district }}</p>
-        <p>{{ years_of_experience }}</p>
+        <p>{{ district.name }}</p>
+        <p>{{ years_of_experience.name }}</p>
         <img src="{{ profile_picture.url }}" />
         <p>{{ description }}</p>
         <a href="{{ website }}">{{ website }}</a> </br>
-        <a href="{{ video_1 }}">{{ video_1 }}</a> </br>
-        <a href="{{ video_2 }}">{{ video_2 }}</a> </br>
-        <a href="{{ video_3 }}">{{ video_3 }}</a> </br>
-        <a href="{{ instagram }}">{{ instagram }}</a> </br>
-        <a href="{{ youtube }}">{{ youtube }}</a> </br>
-        <a href="{{ tiktok }}">{{ tiktok }}</a> </br>
-        <a href="{{ facebook }}">{{ facebook }}</a>
+        {% if video_1 %}
+            <a href="{{ video_1 }}">{{ video_1 }}</a> </br>
+        {% endif %}
+        {% if video_2 %}
+            <a href="{{ video_2 }}">{{ video_2 }}</a> </br>
+        {% endif %}
+        {% if video_3 %}
+            <a href="{{ video_3 }}">{{ video_3 }}</a> </br>
+        {% endif %}
+        {% if instagram %}
+            <a href="{{ instagram }}">{{ instagram }}</a> </br>
+        {% endif %}
+        {% if youtube %}
+            <a href="{{ youtube }}">{{ youtube }}</a> </br>
+        {% endif %}
+        {% if tiktok %}
+            <a href="{{ tiktok }}">{{ tiktok }}</a> </br>
+        {% endif %}
+        {% if facebook %}
+            <a href="{{ facebook }}">{{ facebook }}</a>
+        {% endif %}
+
     </main>
 {% endblock %}
