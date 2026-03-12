@@ -30,6 +30,44 @@ class PageController extends Controller
             $context['catch_phrase'] = get_field("catch_phrase", $page);
             $context['introduction'] = get_field("introduction", $page);
 
+
+            $context['domains_organization'] = get_terms([
+                'taxonomy' => 'domain_organization',
+                'hide_empty' => false,
+           
+            ]);
+
+            $context['domains_technician'] = get_terms([
+                'taxonomy' => 'domain_technician',
+                'hide_empty' => false,
+           
+            ]);
+
+            $context['instruments'] = get_terms([
+                'taxonomy' => 'instrument',
+                'hide_empty' => false,
+           
+            ]);
+
+            $context['styles'] = get_terms([
+                'taxonomy' => 'style',
+                'hide_empty' => false,
+           
+            ]);
+
+            $context['location_types'] = get_terms([
+                'taxonomy' => 'location_type',
+                'hide_empty' => false,
+           
+            ]);
+
+            $context['districts'] = get_terms([
+                'taxonomy' => 'district',
+                'hide_empty' => false,
+           
+            ]);
+
+
             return new TimberResponse('templates/home.twig', $context);
         }
 

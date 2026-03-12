@@ -1,0 +1,72 @@
+<form>
+  <div>
+    <input type="radio" id="technicians" name="categorys" value="technicians" checked />
+    <label for="technicians">Technicien.ne.s</label>
+  </div>
+  <div>
+     <input type="radio" id="bands" name="categorys" value="bands" />
+    <label for="bands">Groupes</label>
+  </div>
+  <div>
+    <input type="radio" id="musicians" name="categorys" value="musicians" />
+    <label for="musicians">Musicien.ne.s</label>
+  </div>
+  <div>
+    <input type="radio" id="locations" name="categorys" value="locations" />
+    <label for="locations">Lieux</label>
+  </div>
+  <div>
+    <input type="radio" id="organizations" name="categorys" value="organizations" />
+    <label for="organizations">Organismes/instances</label>
+  </div>
+  <input type="text" value="Rechercher..."/>
+  <select name="domain_organization">
+    <option value="">--Domaines--</option>
+    {% for domain_organization in domains_organization %}
+      <option value="{{domain_organization.slug}}">
+        {{domain_organization.name}}
+      </option>
+    {% endfor %}
+  </select>
+  <select name="domain_technician">
+    <option value="">--Domaines--</option>
+    {% for domain_technician in domains_technician %}
+      <option value="{{domain_technician.slug}}">
+        {{domain_technician.name}}
+      </option>
+    {% endfor %}
+  </select>
+  <select name="instrument">
+    <option value="">--Instruments--</option>
+    {% for instrument in instruments %}
+      <option value="{{instrument.slug}}">
+        {{instrument.name}}
+      </option>
+    {% endfor %}
+  </select>
+  <select name="style">
+    <option value="">--Styles--</option>
+    {% for style in styles %}
+      <option value="{{style.slug}}">
+        {{style.name}}
+      </option>
+    {% endfor %}
+  </select>
+  <select name="location_type">
+    <option value="">--Types--</option>
+    {% for location_type in location_types %}
+      <option value="{{location_type.slug}}">
+        {{location_type.name}}
+      </option>
+    {% endfor %}
+  </select>
+  <select name="district">
+  <option value="">--Districts--</option>
+    {% for district in districts %}
+      <option value="{{district.slug}}">
+        {{district.name}}
+      </option>
+    {% endfor %}
+  </select>
+  <button type="submit">Filtrer</button>
+</form>
