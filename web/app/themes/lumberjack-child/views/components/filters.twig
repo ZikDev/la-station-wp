@@ -1,74 +1,90 @@
-<form>
+<form method="GET">
+ <fieldset>
+  <legend>Catégorie</legend>
   <div>
-    <input type="radio" id="technicians" name="category" value="technicians" checked/>
-    <label for="technicians">Technicien.ne.s</label>
-  </div>
-  <div>
-    <input type="radio" id="bands" name="category" value="bands"/>
-    <label for="bands">Groupes</label>
+   <input type="radio" id="technicians" name="f_category" value="technician" {{ filters.category == 'technician' or filters.category == '' ? 'checked' }}/>
+   <label for="technicians">Technicien.ne.s</label>
   </div>
   <div>
-    <input type="radio" id="musicians" name="category" value="musicians"/>
-    <label for="musicians">Musicien.ne.s</label>
+   <input type="radio" id="bands" name="f_category" value="band" {{ filters.category == 'band' ? 'checked' }}/>
+   <label for="bands">Groupes</label>
   </div>
   <div>
-    <input type="radio" id="locations" name="category" value="locations"/>
-    <label for="locations">Lieux</label>
+   <input type="radio" id="musicians" name="f_category" value="musician" {{ filters.category == 'musician' ? 'checked' }}/>
+   <label for="musicians">Musicien.ne.s</label>
   </div>
   <div>
-    <input type="radio" id="organizations" name="category" value="organizations"/>
-    <label for="organizations">Organismes/instances</label>
+   <input type="radio" id="locations" name="f_category" value="location" {{ filters.category == 'location' ? 'checked' }}/>
+   <label for="locations">Lieux</label>
   </div>
-
-  <input type="text" placeholder="Rechercher..." aria-label="Rechercher"/>
-
-  <label for="domain_organization">Domaines</label>
-  <div> 
-    {% for domain_organization in domains_organization %}
-      <input type="checkbox" id="{{domain_organization.slug}}" name="{{domain_organization.slug}}" value="organizations"/>
-      <label for="{{domain_organization.slug}}">{{domain_organization.name}}</label>
-    {% endfor %}
+  <div>
+   <input type="radio" id="organizations" name="f_category" value="organization" {{ filters.category == 'organization' ? 'checked' }}/>
+   <label for="organizations">Organismes/instances</label>
   </div>
+ </fieldset>
 
-  <label for="domain_technician">Domaines</label>
-  <div> 
-    {% for domain_technician in domains_technician %}
-      <input type="checkbox" id="{{domain_technician.slug}}" name="{{domain_technician.slug}}" value="organizations"/>
-      <label for="{{domain_technician.slug}}">{{domain_technician.name}}</label>
-    {% endfor %}
-  </div>
+ <label for="f_search">Rechercher</label>
+ <input type="text" id="f_search" name="f_search" placeholder="Rechercher..." value="{{ filters.search }}"/>
 
-  <label for="instrument">Instruments</label>
-  <div> 
-    {% for instrument in instruments %}
-      <input type="checkbox" id="{{instrument.slug}}" name="{{instrument.slug}}" value="organizations"/>
-      <label for="{{instrument.slug}}">{{instrument.name}}</label>
-    {% endfor %}
-  </div>
+ <fieldset>
+  <legend>Domaine (organismes)</legend>
+  {% for domain_organization in domains_organization %}
+   <div>
+    <input type="checkbox" id="{{ domain_organization.slug }}" name="f_domain_organization[]" value="{{ domain_organization.slug }}" {{ domain_organization.slug in filters.domain_organization ? 'checked' }}/>
+    <label for="{{ domain_organization.slug }}">{{ domain_organization.name }}</label>
+   </div>
+  {% endfor %}
+ </fieldset>
 
-  <label for="style">Styles</label>
-  <div> 
-    {% for style in styles %}
-      <input type="checkbox" id="{{style.slug}}" name="{{style.slug}}" value="organizations"/>
-      <label for="{{style.slug}}">{{style.name}}</label>
-    {% endfor %}
-  </div>
+ <fieldset>
+  <legend>Domaine (technicien.ne.s)</legend>
+  {% for domain_technician in domains_technician %}
+   <div>
+    <input type="checkbox" id="{{ domain_technician.slug }}" name="f_domain_technician[]" value="{{ domain_technician.slug }}" {{ domain_technician.slug in filters.domain_technician ? 'checked' }}/>
+    <label for="{{ domain_technician.slug }}">{{ domain_technician.name }}</label>
+   </div>
+  {% endfor %}
+ </fieldset>
 
-  <label for="location_type">Types</label>
-  <div> 
-    {% for location_type in location_types %}
-      <input type="checkbox" id="{{location_type.slug}}" name="{{location_type.slug}}" value="organizations"/>
-      <label for="{{location_type.slug}}">{{location_type.name}}</label>
-    {% endfor %}
-  </div>
+ <fieldset>
+  <legend>Instruments</legend>
+  {% for instrument in instruments %}
+   <div>
+    <input type="checkbox" id="{{ instrument.slug }}" name="f_instrument[]" value="{{ instrument.slug }}" {{ instrument.slug in filters.instrument ? 'checked' }}/>
+    <label for="{{ instrument.slug }}">{{ instrument.name }}</label>
+   </div>
+  {% endfor %}
+ </fieldset>
 
-  <label for="district">Districts</label>
-  <div> 
-    {% for district in districts %}
-      <input type="checkbox" id="{{district.slug}}" name="{{district.slug}}" value="organizations"/>
-      <label for="{{district.slug}}">{{district.name}}</label>
-    {% endfor %}
-  </div>
+ <fieldset>
+  <legend>Styles</legend>
+  {% for style in styles %}
+   <div>
+    <input type="checkbox" id="{{ style.slug }}" name="f_style[]" value="{{ style.slug }}" {{ style.slug in filters.style ? 'checked' }}/>
+    <label for="{{ style.slug }}">{{ style.name }}</label>
+   </div>
+  {% endfor %}
+ </fieldset>
+
+ <fieldset>
+  <legend>Types</legend>
+  {% for location_type in location_types %}
+   <div>
+    <input type="checkbox" id="{{ location_type.slug }}" name="f_location_type[]" value="{{ location_type.slug }}" {{ location_type.slug in filters.location_type ? 'checked' }}/>
+    <label for="{{ location_type.slug }}">{{ location_type.name }}</label>
+   </div>
+  {% endfor %}
+ </fieldset>
+
+ <fieldset>
+  <legend>Districts</legend>
+  {% for district in districts %}
+   <div>
+    <input type="checkbox" id="{{ district.slug }}" name="f_district[]" value="{{ district.slug }}" {{ district.slug in filters.district ? 'checked' }}/>
+    <label for="{{ district.slug }}">{{ district.name }}</label>
+   </div>
+  {% endfor %}
+ </fieldset>
 
  <button type="submit">Filtrer</button>
 </form>
