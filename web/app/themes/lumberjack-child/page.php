@@ -21,18 +21,14 @@ class PageController extends Controller
     public function handle()
     {
         $context = Timber::get_context();
-        $page = new Page();
-
-        $context['post'] = $page;
+        
+        $page = $context['post'];
         $context['title'] = $page->title;
         $context['content'] = $page->content;
 
         if (is_front_page()) {
-            $content = $context["post"];
-
-            $context['catch_phrase'] = get_field("catch_phrase", $content);
-            $context['introduction'] = get_field("introduction", $content);
-
+            $context['catch_phrase'] = get_field("catch_phrase", $page);
+            $context['introduction'] = get_field("introduction", $page);
 
             return new TimberResponse('templates/home.twig', $context);
         }
@@ -41,3 +37,4 @@ class PageController extends Controller
         return new TimberResponse('templates/generic-page.twig', $context);
     }
 }
+ 
