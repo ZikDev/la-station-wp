@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main>
+        <h1>{{ title }}</h1>
+        {{ content|raw }}
+
+        <fieldset>
+            <legend>Catégories *</legend>
+            <form>
+            <div>
+                <input type="radio" id="technicians" name="category" value="technicians" checked/>
+                <label for="technicians">Technicien.ne.s</label>
+            </div>
+            <div>
+                <input type="radio" id="bands" name="category" value="bands"/>
+                <label for="bands">Groupes</label>
+            </div>
+            <div>
+                <input type="radio" id="musicians" name="category" value="musicians"/>
+                <label for="musicians">Musicien.ne.s</label>
+            </div>
+            <div>
+                <input type="radio" id="locations" name="category" value="locations"/>
+                <label for="locations">Lieux</label>
+            </div>
+            <div>
+                <input type="radio" id="organizations" name="category" value="organizations"/>
+                <label for="organizations">Organismes/instances</label>
+            </div>
+        </fieldset>
+
+        <input type="text" id="name" name="name" placeholder="Nom *" />
+        <input type="text" id="first_name" name="firstname" placeholder="Prénom *" />
+
+        <input type="email" id="email" name="email" pattern=".+@exemple\.com" size="30" placeholder="E-mail" />
+
+        <textarea id="message" name="message" rows="5" cols="33"> </textarea>
+
+        <button type="submit">Envoyer</button>
+    </main>
+{% endblock %}

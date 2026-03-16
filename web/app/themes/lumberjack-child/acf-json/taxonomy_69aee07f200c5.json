@@ -3,7 +3,7 @@
     "title": "Années d'expériences",
     "menu_order": 0,
     "active": true,
-    "taxonomy": "years_of_experience",
+    "taxonomy": "year_of_experience",
     "object_type": [
         "profile"
     ],
@@ -71,5 +71,5 @@
     "meta_box": "default",
     "meta_box_cb": "",
     "meta_box_sanitize_cb": "",
-    "modified": 1773068453
+    "modified": 1773410308
 }
