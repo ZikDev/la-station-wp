@@ -3,6 +3,7 @@
 {% block content %}
     <main>
         <h1>{{ title }}</h1>
+
         <p>{{ category }}</p>
         
         {% if domain_technician %}
@@ -60,21 +61,27 @@
         {% if video_1 %}
             <a href="{{ video_1 }}">{{ video_1 }}</a> </br>
         {% endif %}
+
         {% if video_2 %}
             <a href="{{ video_2 }}">{{ video_2 }}</a> </br>
         {% endif %}
+
         {% if video_3 %}
             <a href="{{ video_3 }}">{{ video_3 }}</a> </br>
         {% endif %}
+
         {% if instagram %}
             <a href="{{ instagram }}">{{ instagram }}</a> </br>
         {% endif %}
+
         {% if youtube %}
             <a href="{{ youtube }}">{{ youtube }}</a> </br>
         {% endif %}
+
         {% if tiktok %}
             <a href="{{ tiktok }}">{{ tiktok }}</a> </br>
         {% endif %}
+        
         {% if facebook %}
             <a href="{{ facebook }}">{{ facebook }}</a>
         {% endif %}
