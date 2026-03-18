@@ -256,14 +256,14 @@
                     {
                         "field": "field_69a9495e4739f",
                         "operator": "==",
-                        "value": "musician"
+                        "value": "technician"
                     }
                 ],
                 [
                     {
                         "field": "field_69a9495e4739f",
                         "operator": "==",
-                        "value": "tech"
+                        "value": "musician"
                     }
                 ]
             ],
@@ -417,7 +417,7 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "years_of_experience",
+            "taxonomy": "year_of_experience",
             "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
@@ -640,5 +640,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773068758
+    "modified": 1773740923
 }

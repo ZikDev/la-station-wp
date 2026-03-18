@@ -46,8 +46,6 @@ class SingleProfileController extends Controller
 
         // dump($context['test']);
 
-       
-
         return new TimberResponse('templates/profile-page.twig', $context);
     }
 }

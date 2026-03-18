@@ -4,33 +4,59 @@
     <main>
         <h1>{{ title }}</h1>
         <p>{{ category }}</p>
-        <p>{{ domain_technician.name|join(", ") }}</p>
-        <p>{{ domain_organization.name|join(", ") }}</p>
-        <p>{{ style.name|join(", ") }}</p>
-        <p>{{ instrument.name|join(", ") }}</p>
-        <p>{{ location_type.name|join(", ") }}</p>
+        
+        {% if domain_technician %}
+            <p>{{ domain_technician|map(s => s.name)|join(', ') }}</p>
+        {% endif %}
+
+        {% if domain_organization %}
+            <p>{{ domain_organization|map(s => s.name)|join(', ') }}</p>
+        {% endif %}
+
+        {% if style %}
+            <p>{{ style|map(s => s.name)|join(', ') }}</p>
+        {% endif %}
+
+        {% if instrument %}
+            <p>{{ instrument|map(s => s.name)|join(', ') }}</p>
+        {% endif %}
+
+        {% if location_type %}
+            <p>{{ location_type|map(s => s.name)|join(', ') }}</p>
+        {% endif %}
+ 
         <p>{{ name }}</p>
+
         {% if first_name %}
             <p>{{ first_name }}</p>
         {% endif %}
+
         {% if creation_year.name %}
             <p>{{ creation_year.name }}</p>
         {% endif %}
+
         {% if email %}
             <a href="mailto:{{ email }}">{{ email }}</a> </br>
         {% endif %}
+
         {% if phone_number %}
             <a href="tel:+{{ phone_number }}">{{ phone_number }}</a> </br>
         {% endif %}
+
         <p>{{ district.name }}</p>
+
         {% if years_of_experience.name %}
             <p>{{ years_of_experience.name }}</p>
         {% endif %}
+
         <img src="{{ profile_picture.url }}" />
+
         {% if description %}
             <p>{{ description }}</p>
         {% endif %}
+
         <a href="{{ website }}">{{ website }}</a> </br>
+
         {% if video_1 %}
             <a href="{{ video_1 }}">{{ video_1 }}</a> </br>
         {% endif %}
