@@ -226,6 +226,42 @@ class PageController extends Controller
             }
         }
 
+        if (!empty($filters['years_of_experience'])) {
+            $conditions = ['relation' => 'OR'];
+            foreach ($filters['years_of_experience'] as $slug) {
+                $term = get_term_by('slug', $slug, 'years_of_experience');
+                if ($term) {
+                    $conditions[] = [
+                        'key' => 'years_of_experience',
+                        'value' => "\"$term->term_id\"",
+                        'compare' => 'LIKE',
+                    ];
+                }
+            }
+            if (\count($conditions) > 1) {
+                $query_args['meta_query'][] = $conditions;
+            }
+        }
+
+        if (!empty($filters['district'])) {
+            $conditions = ['relation' => 'OR'];
+            foreach ($filters['district'] as $slug) {
+                $term = get_term_by('slug', $slug, 'district');
+                if ($term) {
+                    $conditions[] = [
+                        'key' => 'district',
+                        'value' => "\"$term->term_id\"",
+                        'compare' => 'LIKE',
+                    ];
+                }
+            }
+            if (\count($conditions) > 1) {
+                $query_args['meta_query'][] = $conditions;
+            }
+        }
+
+        
+
         // ----------------
 
         // Si plusieurs conditions meta, elles doivent toutes être satisfaites (AND)
