@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_69aa90cd73632",
-            "label": "Une fois remplie",
+            "label": "Important !",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Une fois tous les champs obligatoires et voulus remplis, cliquer sur \"publier\" à droite du formulaire pour créer la page de profil. \r\nSi vous avez apporté des modifications à votre page, cliquez sur \"mettre à jour\" pour mettre à jour les informations changées sur le site.",
+            "message": "Mettez votre nom comme nom (et prénom si se profil est celui d'une personne) comme titre de page.\r\n\r\nUne fois tous les champs obligatoires et voulus remplis, cliquer sur \"publier\" à droite du formulaire pour créer la page de profil. \r\n\r\nSi vous avez apporté des modifications à votre page, cliquez sur \"mettre à jour\" pour mettre à jour les informations changées sur le site.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -640,5 +640,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773740923
+    "modified": 1774854891
 }
