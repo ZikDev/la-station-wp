@@ -1,86 +1,87 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <main>
-        <h1>{{ title }}</h1>
-        <h2>{{ catch_phrase }}</h2>
-        <p>{{ introduction }}</p>
+	<main>
+		<h1>{{ title }}</h1>
+		<h2>{{ catch_phrase }}</h2>
+		<p>{{ introduction }}</p>
 
-        {% include 'components/filters.twig' with {districts:districts} %}
+		{% include 'components/filters.twig' with {districts:districts} %}
 
-        <ul>
-            {% for profile in profiles %}
-                <li>
-                    {{ profile.name }} 
+		<ul>
+			{% for profile in profiles %}
+				<li>
+					{{ profile.name }}
 
-                    {% if profile.first_name %}
-                        {{ profile.first_name }}
-                    {% endif %}
+					{% if profile.first_name %}
+						{{ profile.first_name }}
+					{% endif %}
 
-                    {% if profile.domain_technician %}
-                        {{ profile.domain_technician|map(s => s.name)|join(', ') }}
-                    {% endif %}
+					{% if profile.domain_technician %}
+						{{ profile.domain_technician|map(s => s.name)|join(', ') }}
+					{% endif %}
 
-                    {% if profile.domain_organization %}
-                        {{ profile.domain_organization|map(s => s.name)|join(', ') }}
-                    {% endif %}
+					{% if profile.domain_organization %}
+						{{ profile.domain_organization|map(s => s.name)|join(', ') }}
+					{% endif %}
 
-                    {% if profile.style %}
-                        {{ profile.style|map(s => s.name)|join(', ') }}
-                    {% endif %}
+					{% if profile.style %}
+						{{ profile.style|map(s => s.name)|join(', ') }}
+					{% endif %}
 
-                    {% if profile.instrument %}
-                        {{ profile.instrument|map(s => s.name)|join(', ') }}
-                    {% endif %}
+					{% if profile.instrument %}
+						{{ profile.instrument|map(s => s.name)|join(', ') }}
+					{% endif %}
 
-                    {% if profile.location_type %}
-                        {{ profile.location_type|map(s => s.name)|join(', ') }}
-                    {% endif %}
+					{% if profile.location_type %}
+						{{ profile.location_type|map(s => s.name)|join(', ') }}
+					{% endif %}
 
-                    {{ profile.years_of_experience }}
+					{{ profile.years_of_experience }}
 
-                    {{ profile.district }}
+					{{ profile.district }}
 
-                    <ul>
-                        <li>
-                            {% if profile.email %}
-                                <a href="{{ profile.email }}">{{ profile.email }}</a>
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if profile.phone_number %}
-                                <a href="{{ profile.phone_number }}">{{ profile.phone_number }}</a>
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if profile.website %}
-                                <a href="{{ profile.website }}">{{ profile.website }}</a>
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if profile.instagram %}
-                                <a href="{{ profile.instagram }}">{{ profile.instagram }}</a>
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if profile.youtube %}
-                                <a href="{{ profile.youtube }}">{{ profile.youtube }}</a>
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if profile.tiktok %}
-                                <a href="{{ profile.tiktok }}">{{ profile.tiktok }}</a>
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if profile.facebook %}
-                                <a href="{{ profile.facebook }}">{{ profile.facebook }}</a>
-                            {% endif %}
-                        </li>
-                    </ul>
-                </li>
-            {% endfor %}
-        </ul>
+					<ul>
+						<li>
+							{% if profile.email %}
+								<a href="{{ profile.email }}">{{ profile.email }}</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if profile.phone_number %}
+								<a href="{{ profile.phone_number }}">{{ profile.phone_number }}</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if profile.website %}
+								<a href="{{ profile.website }}">{{ profile.website }}</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if profile.instagram %}
+								<a href="{{ profile.instagram }}">{{ profile.instagram }}</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if profile.youtube %}
+								<a href="{{ profile.youtube }}">{{ profile.youtube }}</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if profile.tiktok %}
+								<a href="{{ profile.tiktok }}">{{ profile.tiktok }}</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if profile.facebook %}
+								<a href="{{ profile.facebook }}">{{ profile.facebook }}</a>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+			{% endfor %}
+		</ul>
 
-    </main>
+		{% include 'components/profile-request-form.twig' %}
+	</main>
 {% endblock %}
