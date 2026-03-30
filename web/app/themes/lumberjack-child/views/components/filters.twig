@@ -1,23 +1,23 @@
 <form method="GET">
  <fieldset>
   <legend>Catégorie</legend>
-  <div>
+  <div class="radio-card">
    <input type="radio" id="technicians" name="f_category" value="technician" {{ filters.category == 'technician' or filters.category == '' ? 'checked' }}/>
    <label for="technicians">Technicien.ne.s</label>
   </div>
-  <div>
+  <div class="radio-card">
    <input type="radio" id="bands" name="f_category" value="band" {{ filters.category == 'band' ? 'checked' }}/>
    <label for="bands">Groupes</label>
   </div>
-  <div>
+  <div class="radio-card">
    <input type="radio" id="musicians" name="f_category" value="musician" {{ filters.category == 'musician' ? 'checked' }}/>
    <label for="musicians">Musicien.ne.s</label>
   </div>
-  <div>
+  <div class="radio-card">
    <input type="radio" id="locations" name="f_category" value="location" {{ filters.category == 'location' ? 'checked' }}/>
    <label for="locations">Lieux</label>
   </div>
-  <div>
+  <div class="radio-card">
    <input type="radio" id="organizations" name="f_category" value="organization" {{ filters.category == 'organization' ? 'checked' }}/>
    <label for="organizations">Organismes/instances</label>
   </div>
@@ -26,7 +26,7 @@
  <label for="f_search">Rechercher</label>
  <input type="text" id="f_search" name="f_search" placeholder="Rechercher..." value="{{ filters.search }}"/>
 
- <fieldset>
+ <fieldset id="sub_domain_organization" class="sub_domain">
   <legend>Domaine (organismes)</legend>
   {% for domain_organization in domains_organization %}
    <div>
@@ -36,7 +36,7 @@
   {% endfor %}
  </fieldset>
 
- <fieldset>
+ <fieldset id="sub_domain_technician" class="sub_domain active">
   <legend>Domaine (technicien.ne.s)</legend>
   {% for domain_technician in domains_technician %}
    <div>
@@ -46,7 +46,7 @@
   {% endfor %}
  </fieldset>
 
- <fieldset>
+ <fieldset id="sub_domain_musician" class="sub_domain">
   <legend>Instruments</legend>
   {% for instrument in instruments %}
    <div>
@@ -56,7 +56,7 @@
   {% endfor %}
  </fieldset>
 
- <fieldset>
+ <fieldset id="sub_domain_band" class="sub_domain">
   <legend>Styles</legend>
   {% for style in styles %}
    <div>
@@ -66,7 +66,7 @@
   {% endfor %}
  </fieldset>
 
- <fieldset>
+ <fieldset id="sub_domain_location" class="sub_domain">
   <legend>Types</legend>
   {% for location_type in location_types %}
    <div>
