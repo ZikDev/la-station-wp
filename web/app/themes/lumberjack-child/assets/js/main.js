@@ -5,7 +5,12 @@ const cards = document.querySelectorAll('.radio-card');
 radios.forEach(radio => {
   radio.addEventListener('change', () => {
     // Réinitialiser tous les panneaux et cartes
-    panels.forEach(panel => panel.classList.remove('active'));
+    panels.forEach(panel => {
+      panel.classList.remove('active');
+      // Reset des checkboxes du panneau caché
+      panel.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    });
+
     cards.forEach(card => card.classList.remove('selected'));
 
     // Activer le panneau correspondant
