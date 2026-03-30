@@ -1,0 +1,43 @@
+{# templates/emails/request-membership.twig #}
+{% extends "emails/base.twig" %}
+
+{% block title %}
+	{{ site_name }}
+	- Nouvelle demande d'adhésion
+
+{% endblock %}
+
+{% block header_title %}
+	Nouvelle demande d'adhésion
+{% endblock %}
+
+{% block content %}
+	<h2>Une nouvelle demande d'adhésion a été soumise et nécessite votre confirmation</h2>
+
+	<p>
+		<strong>Nom:</strong>
+		{{name}}</p>
+	<p>
+		<strong>E-mail:</strong>
+		{{email}}</p>
+	{% if phoneNumber %}
+		<p>
+			<strong>Numéro de téléphone:</strong>
+			{{phoneNumber}}</p>
+	{% endif %}
+
+	<p>
+		<strong>Message:</strong>
+		{{ message|nl2br }}</p>
+
+	<div class="info-box">
+		<h3 style="margin-top: 0; color: #495057;">
+			Création du compte</h3>
+		<p>Si vous souhaitez autoriser l’adhésion de ce profil, veuillez cliquer sur le lien ci-après.</p>
+		<p>En cliquant sur ce lien, cela crée un compte WordPress au nouveau profil et lui envoie une notification afin qu'il·elle puisse s'y connecter et remplir sa fiche profil.</p>
+		<p>Ce lien est valide 30 jours.</p>
+		<p>
+			<a href="{{ create_account_url }}" class="button">Créer le compte</a>
+		</p>
+	</div>
+{% endblock %}
