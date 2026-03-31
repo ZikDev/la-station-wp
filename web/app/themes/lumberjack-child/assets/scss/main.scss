@@ -3,7 +3,8 @@ $primary-color: #0073aa;
 $secondary-color: #23282d;
 $text-color: #333;
 $background-color: #fff;
-$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+$font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
     Cantarell, "Helvetica Neue", sans-serif;
 
 // Base styles
@@ -47,13 +48,6 @@ a {
     padding: 0 1rem;
 }
 
-.test {
-    background: red;
-
-    h1 a {
-        color: green;
-    }
-}
-
 // Imports (ajoutez vos partials ici)
-@import 'partials/filters';
+@import "partials/banner";
+@import "partials/filters";

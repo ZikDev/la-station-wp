@@ -18,29 +18,56 @@
  * @return void
  */
 add_action('wp_enqueue_scripts', function () {
-    $theme_uri = get_template_directory_uri();
-    $theme_path = get_template_directory();
+  $theme_uri = get_template_directory_uri();
+  $theme_path = get_template_directory();
 
-    // CSS compilé depuis SCSS
-    if (file_exists($theme_path . '/dist/css/style.css')) {
-        wp_enqueue_style(
-            'theme-style',
-            $theme_uri . '/dist/css/style.css',
-            [],
-            filemtime($theme_path . '/dist/css/style.css')
-        );
-    }
+  // CSS compilé depuis SCSS
+  if (file_exists($theme_path . '/dist/css/style.css')) {
+    wp_enqueue_style(
+      'theme-style',
+      $theme_uri . '/dist/css/style.css',
+      [],
+      filemtime($theme_path . '/dist/css/style.css')
+    );
+  }
 
-    // JS
-    if (file_exists($theme_path . '/dist/js/main.js')) {
-        wp_enqueue_script(
-            'theme-script',
-            $theme_uri . '/dist/js/main.js',
-            [],
-            filemtime($theme_path . '/dist/js/main.js'),
-            true
-        );
-    }
+  // JS
+  if (file_exists($theme_path . '/dist/js/main.js')) {
+    wp_enqueue_script(
+      'theme-script',
+      $theme_uri . '/dist/js/main.js',
+      [],
+      filemtime($theme_path . '/dist/js/main.js'),
+      true
+    );
+  }
+
+  // Configuration des données JavaScript pour les formulaires de membres
+  wp_localize_script('theme-script', 'profileFormData', [
+    'nonce' => wp_create_nonce('wp_rest'),
+    'apiUrl' => home_url('/wp-json/mcf/v1/profile'),
+    'messages' => [
+      'success' => "Requête envoyée avec succès !",
+      'error' => "Erreur",
+      'unexpected' => "Une erreur est survenue. Veuillez reéssayer plus tard.",
+    ],
+  ]);
+});
+
+// ========================================
+// CONFIGURATION SMTP
+// ========================================
+
+add_action('phpmailer_init', function ($phpmailer) {
+  $phpmailer->isSMTP();
+  $phpmailer->Host       = getenv('SMTP_HOST');
+  $phpmailer->Port       = (int) getenv('SMTP_PORT');
+  $phpmailer->SMTPAuth   = filter_var(getenv('SMTP_AUTH'), FILTER_VALIDATE_BOOLEAN);
+  $phpmailer->Username   = getenv('SMTP_USER');
+  $phpmailer->Password   = getenv('SMTP_PASS');
+  $phpmailer->SMTPSecure = getenv('SMTP_SECURE') ?: '';
+  $phpmailer->From       = getenv('SMTP_FROM') ?: get_option('admin_email');
+  $phpmailer->FromName   = getenv('SMTP_FROM_NAME') ?: get_bloginfo('name');
 });
 
 // ========================================
