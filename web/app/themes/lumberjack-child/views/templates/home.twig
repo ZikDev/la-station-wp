@@ -13,32 +13,35 @@
                 <li>
                     <a href="profile/{{profile.post_name}}">
                         {{ profile.name }} 
+                        {# {{dump(profile)}} #}
 
                         {% if profile.first_name %}
                             {{ profile.first_name }}
                         {% endif %}
 
                         {% if profile.domain_technician %}
-                            {{ profile.domain_technician|map(s => s.name)|join(', ') }}
+                            {{ get_field("domain_technician" , profile)|map(s => s.name)|join(', ') }}
                         {% endif %}
 
                         {% if profile.domain_organization %}
-                            {{ profile.domain_organization|map(s => s.name)|join(', ') }}
+                            {{ get_field("domain_organization" , profile)|map(s => s.name)|join(', ') }}
                         {% endif %}
 
                         {% if profile.style %}
-                            {{ profile.style|map(s => s.name)|join(', ') }}
+                            {{ get_field("style" , profile)|map(s => s.name)|join(', ') }}
                         {% endif %}
 
                         {% if profile.instrument %}
-                            {{ profile.instrument|map(s => s.name)|join(', ') }}
+                            {{ get_field("instrument" , profile)|map(s => s.name)|join(', ') }}
                         {% endif %}
 
                         {% if profile.location_type %}
-                            {{ profile.location_type|map(s => s.name)|join(', ') }}
+                            {{ get_field("location_type" , profile)|map(s => s.name)|join(', ') }}
                         {% endif %}
 
-                        {{ profile.years_of_experience }}
+                        {{ profile.years_of_experience}}
+
+                        {{ get_field("years_of_experience")}}
 
                         {{ profile.district }}
 

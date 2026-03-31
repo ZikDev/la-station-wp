@@ -101,6 +101,8 @@ function custom_theme_extend_twig($twig)
   $twig->addFunction(new \Twig\TwigFunction('wp_login_url', 'wp_login_url'));
   $twig->addFunction(new \Twig\TwigFunction('wp_logout_url', 'wp_logout_url'));
 
+  $twig->addFunction(new \Twig\TwigFunction('get_field', 'get_field'));
+
   return $twig;
 }
 add_filter('timber/twig', 'custom_theme_extend_twig');

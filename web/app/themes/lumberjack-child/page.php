@@ -95,7 +95,7 @@ class PageController extends Controller
     {
         return [
             'search' => sanitize_text_field($_GET['f_search'] ?? ''),
-            'category' => sanitize_text_field($_GET['f_category'] ?? ''),
+            'category' => sanitize_text_field($_GET['f_category'] ?? 'technician'),
             'domain_organization' => array_map('sanitize_text_field', $_GET['f_domain_organization'] ?? []),
             'domain_technician' => array_map('sanitize_text_field', $_GET['f_domain_technician'] ?? []),
             'instrument' => array_map('sanitize_text_field', $_GET['f_instrument'] ?? []),
@@ -122,6 +122,10 @@ class PageController extends Controller
             'meta_query' => [],
             'tax_query' => [],
         ];
+
+        if (!empty($filters['search'])) {
+            $query_args['s'] = $filters['search'];
+        }
 
         // Filtre par catégorie de profil (champ ACF select, valeur unique)
         if (!empty($filters['category'])) {
@@ -259,6 +263,8 @@ class PageController extends Controller
                 $query_args['meta_query'][] = $conditions;
             }
         }
+
+        
 
         
 
