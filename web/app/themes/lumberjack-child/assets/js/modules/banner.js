@@ -147,24 +147,14 @@ class BannerManager {
         let container = document.querySelector(".banner-container");
         if (!container) {
             container = document.createElement("div");
-            container.className =
-                "banner-container fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-lg space-y-2";
+            container.className = "banner-container";
             document.body.appendChild(container);
         }
         return container;
     }
 
     getBannerClasses(type) {
-        const baseClasses =
-            "banner flex items-center justify-between p-4 rounded-lg border transition-all duration-300 ease-in-out opacity-100";
-        const typeClasses = {
-            success: "bg-green-50 border-green-200 text-green-800",
-            error: "bg-red-50 border-red-200 text-red-800",
-            warning: "bg-yellow-50 border-yellow-200 text-yellow-800",
-            info: "bg-blue-50 border-blue-200 text-blue-800",
-        };
-
-        return `${baseClasses} ${typeClasses[type] || typeClasses.info}`;
+        return `banner banner--${type || "info"}`;
     }
 
     getBannerHTML(type, message, title, dismissible) {
@@ -175,51 +165,30 @@ class BannerManager {
             info: "ℹ",
         };
 
-        const iconColors = {
-            success: "bg-green-100 text-green-600",
-            error: "bg-red-100 text-red-600",
-            warning: "bg-yellow-100 text-yellow-600",
-            info: "bg-blue-100 text-blue-600",
-        };
-
-        const buttonColors = {
-            success: "focus:ring-green-600 hover:bg-green-100",
-            error: "focus:ring-red-600 hover:bg-red-100",
-            warning: "focus:ring-yellow-600 hover:bg-yellow-100",
-            info: "focus:ring-blue-600 hover:bg-blue-100",
-        };
-
         const titleHTML = title
-            ? `<h3 class="heading-2-mobile mb-1">${title}</h3>`
+            ? `<h3 class="banner__title">${title}</h3>`
             : "";
+
         const dismissButton = dismissible
             ? `
-            <div class="flex-shrink-0 ml-4">
-                <button data-banner-dismiss 
-                        class="inline-flex text-sm rounded-md p-1.5 hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors ${
-                            buttonColors[type] || buttonColors.info
-                        }">
+            <div class="banner__dismiss-wrap">
+                <button data-banner-dismiss class="banner__dismiss">
                     <span class="sr-only">Fermer</span>
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="banner__dismiss-icon" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                     </svg>
                 </button>
-            </div>
-        `
+            </div>`
             : "";
 
         return `
-            <div class="flex items-center flex-1">
-                <div class="flex-shrink-0 mr-3">
-                    <span class="inline-flex items-center justify-center w-6 h-6 text-sm font-semibold rounded-full ${
-                        iconColors[type] || iconColors.info
-                    }">
-                        ${icons[type] || icons.info}
-                    </span>
+            <div class="banner__body">
+                <div class="banner__icon-wrap">
+                    <span class="banner__icon">${icons[type] || icons.info}</span>
                 </div>
-                <div class="flex-1">
+                <div class="banner__content">
                     ${titleHTML}
-                    <div class="text-base-mobile">${message}</div>
+                    <div class="banner__message">${message}</div>
                 </div>
             </div>
             ${dismissButton}

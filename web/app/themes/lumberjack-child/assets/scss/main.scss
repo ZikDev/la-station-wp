@@ -48,17 +48,5 @@ a {
     padding: 0 1rem;
 }
 
-.test {
-    background: red;
-
-    h1 a {
-        color: green;
-    }
-}
-
 // Imports (ajoutez vos partials ici)
-// @import 'partials/header';
-// @import 'partials/footer';
-// @import 'partials/components';
-@import 'partials/banner';
-@import 'partials/profile-request-form';
+@import "partials/banner";
