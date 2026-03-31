@@ -1,0 +1,106 @@
+{# templates/emails/base.twig #}
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}
+				{{ site_name }}
+			{% endblock %}
+		</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Karla:ital, wght@0, 200..800;1, 200..800 &display=swap');
+			body {
+				font-family: "Karla", sans-serif;
+				line-height: 1.6;
+				color: #0c1421;
+				margin: 0;
+				padding: 0;
+				background-color: #f4f4f4;
+			}
+			.container {
+				max-width: 600px;
+				margin: 0 auto;
+				background-color: #ffffff;
+				padding: 0;
+			}
+			.logo {
+				max-width: 200px;
+			}
+			.header {
+				background-color: #f8f9fa;
+				padding: 20px;
+				text-align: center;
+			}
+			.content {
+				padding: 30px;
+			}
+			.footer {
+				background-color: #f8f9fa;
+				padding: 20px;
+				text-align: center;
+				font-size: 12px;
+				color: #6c757d;
+			}
+			.info-box {
+				background-color: #f8f9fa;
+				padding: 20px;
+				border-radius: 5px;
+				margin: 20px 0;
+			}
+			.warning-box {
+				background-color: #fff3cd;
+				padding: 15px;
+				border-radius: 5px;
+				border-left: 4px solid #fad600;
+				margin: 20px 0;
+			}
+			.button {
+				display: inline-block;
+				padding: 12px 25px;
+				border: 1px solid #ff457d;
+				color: #0c1421;
+				text-decoration: none;
+				border-radius: 4px;
+				margin: 10px 0;
+			}
+			.credentials {
+				background-color: #e9ecef;
+				padding: 15px;
+				border-radius: 5px;
+				font-family: monospace;
+				margin: 15px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<img class="logo" src="{{ theme_url }}/assets/img/logo.svg" alt="Logo de La Station">
+				<h1>
+					{% block header_title %}
+						{{ site_name }}
+					{% endblock %}
+				</h1>
+			</div>
+
+			<div class="content"> {% block content %}{% endblock %}
+				</div>
+
+				<div class="footer">
+					{% block footer %}
+						<p>©
+							{{ current_year }}
+							{{ site_name }}. Tous droits réservés.</p>
+						<p>Cet email a été envoyé automatiquement, merci de ne pas y répondre.</p>
+						<p>
+							<a href="{{ site_url }}">Visiter le site</a>
+							|
+							<a href="mailto:{{ admin_email }}">Nous contacter</a>
+						</p>
+					{% endblock %}
+				</div>
+			</div>
+		</body>
+	</html>
