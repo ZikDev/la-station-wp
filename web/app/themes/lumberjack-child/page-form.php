@@ -22,6 +22,6 @@ class PageFormController extends Controller
         $context['title'] = $post->title;
         $context['content'] = $post->content;
 
-        return new TimberResponse('templates/form.twig', $context);
+        return new TimberResponse('templates/postulation-page.twig', $context);
     }
 }

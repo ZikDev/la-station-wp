@@ -380,7 +380,7 @@
             "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
-            "return_format": "id",
+            "return_format": "object",
             "field_type": "select",
             "allow_null": 0,
             "allow_in_bindings": 0,
@@ -640,5 +640,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1774944114
+    "modified": 1775116398
 }

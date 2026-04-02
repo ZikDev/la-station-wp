@@ -1,6 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
+
 	<main>
 		<h1>{{ title }}</h1>
 		<h2>{{ catch_phrase }}</h2>
@@ -8,42 +9,43 @@
 
 		{% include 'components/filters.twig' with {districts:districts} %}
 
-        <ul>
-            {% for profile in profiles %}
-                <li>
-                    <a href="profile/{{profile.post_name}}">
-                        {{ profile.name }} 
-                        {# {{dump(profile)}} #}
+    <ul>
+      {% for profile in profiles %}
+        <li>
+          <a href="profile/{{profile.post_name}}">
+            {{ profile.name }} 
 
-												{% if profile.first_name %}
-													{{ profile.first_name }}
-												{% endif %}
+						{% if profile.first_name %}
+							{{ profile.first_name }}
+						{% endif %}
 
-                        {% if profile.domain_technician %}
-                            {{ get_field("domain_technician" , profile)|map(s => s.name)|join(', ') }}
-                        {% endif %}
+            {% if get_field("domain_technician" , profile) %}
+              {{ get_field("domain_technician" , profile)|map(s => s.name)|join(', ') }}
+            {% endif %}
 
-                        {% if profile.domain_organization %}
-                            {{ get_field("domain_organization" , profile)|map(s => s.name)|join(', ') }}
-                        {% endif %}
+            {% if get_field("domain_organization" , profile) %}
+              {{ get_field("domain_organization" , profile)|map(s => s.name)|join(', ') }}
+            {% endif %}
 
-                        {% if profile.style %}
-                            {{ get_field("style" , profile)|map(s => s.name)|join(', ') }}
-                        {% endif %}
+            {% if get_field("style" , profile) %}
+              {{ get_field("style" , profile)|map(s => s.name)|join(', ') }}
+            {% endif %}
 
-                        {% if profile.instrument %}
-                            {{ get_field("instrument" , profile)|map(s => s.name)|join(', ') }}
-                        {% endif %}
+            {% if get_field("instrument" , profile) %}
+              {{ get_field("instrument" , profile)|map(s => s.name)|join(', ') }}
+            {% endif %}
 
-                        {% if profile.location_type %}
-                            {{ get_field("location_type" , profile)|map(s => s.name)|join(', ') }}
-                        {% endif %}
+            {% if get_field("location_type" , profile) %}
+              {{ get_field("location_type" , profile)|map(s => s.name)|join(', ') }}
+            {% endif %}
 
-                        {{ profile.years_of_experience}}
+						{% if get_field("years_of_experience" , profile ) %}
+              {{ get_field("years_of_experience" , profile ).name }}
+						{% endif %}
 
-                        {{ get_field("years_of_experience")}}
-
-						{{ profile.district }}
+						{% if get_field("district" , profile ) %}
+              {{ get_field("district" , profile ).name }}
+						{% endif %}
 
 						<ul>
 							<li>
@@ -87,6 +89,6 @@
 			{% endfor %}
 		</ul>
 
-		{% include 'components/profile-request-form.twig' %}
 	</main>
+
 {% endblock %}
